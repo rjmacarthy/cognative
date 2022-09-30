@@ -1,3 +1,3 @@
-# cognitive
+# cognitive-js
 
 Data structure utilities
