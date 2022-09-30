@@ -1,4 +1,4 @@
-import { mean, sqrt, stddev } from "../lib/math"
+import { mean, sqrt, stddev, cumSum } from "../lib/math"
 
 test("base", () => {
   expect(
@@ -27,4 +27,18 @@ test("base", () => {
       [1, 2, 3]
     ])
   ).toEqual([1, 0, 1])
+
+  expect(
+    cumSum([
+      [11, 20, 3],
+      [1, 15, 6],
+      [2, 30, 40],
+      [2, 89, 78]
+    ])
+  ).toEqual([
+    [11, 20, 3],
+    [12, 35, 9],
+    [14, 65, 49],
+    [16, 154, 127]
+  ])
 })
