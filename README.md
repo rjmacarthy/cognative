@@ -1,3 +1,3 @@
-# cognative
+# cognitive
 
 Data structure utilities
