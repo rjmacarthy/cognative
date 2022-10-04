@@ -1,4 +1,4 @@
-import { mean, sqrt, stddev, cumSum } from "../lib/df/math"
+import { mean, sqrt, stddev, cumSum } from "../lib/data-frame/math"
 
 test("base", () => {
   expect(
