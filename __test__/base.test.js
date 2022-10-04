@@ -1,4 +1,4 @@
-import { compose, rowFnx } from '../lib/base'
+import { compose, rowFnx } from '../lib/base/base'
 
 test('base', () => {
   expect(
