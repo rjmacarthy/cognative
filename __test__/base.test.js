@@ -1,4 +1,4 @@
-import { compose, rowFnx } from '../lib/base/base'
+import { compose, sFn } from '../lib/base/base'
 
 test('base', () => {
   expect(
@@ -9,5 +9,5 @@ test('base', () => {
     )(0)
   ).toEqual(3)
 
-  expect(rowFnx([1, 2, 3], (x) => x * 2)).toEqual([2, 4, 6])
+  expect(sFn([1, 2, 3], (x) => x * 2)).toEqual([2, 4, 6])
 })
