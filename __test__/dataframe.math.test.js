@@ -1,4 +1,13 @@
-import { mean, sqrt, stddev, cumSum } from "../lib/data-frame/math"
+import {
+  mean,
+  sqrt,
+  stddev,
+  cumSum,
+  subtract,
+  add,
+  multiply,
+  divide
+} from "../lib/data-frame/math"
 
 test("base", () => {
   expect(
@@ -41,4 +50,32 @@ test("base", () => {
     [14, 65, 49],
     [16, 154, 127]
   ])
+
+  expect(
+    add([
+      [1, 2, 3],
+      [1, 2, 3]
+    ])
+  ).toEqual([2, 4, 6])
+
+  expect(
+    divide([
+      [1, 2, 3],
+      [1, 2, 3]
+    ])
+  ).toEqual([1, 1, 1])
+
+  expect(
+    multiply([
+      [1, 2, 3],
+      [1, 2, 3]
+    ])
+  ).toEqual([1, 4, 9])
+
+  expect(
+    subtract([
+      [1, 2, 3],
+      [1, 2, 3]
+    ])
+  ).toEqual([0, 0, 0])
 })
