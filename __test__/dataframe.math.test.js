@@ -6,10 +6,11 @@ import {
   subtract,
   add,
   multiply,
-  divide
-} from "../lib/data-frame/math"
+  divide,
+  abs
+} from '../lib/data-frame/math'
 
-test("base", () => {
+test('base', () => {
   expect(
     sqrt([
       [1, 2, 3],
@@ -71,6 +72,16 @@ test("base", () => {
       [1, 2, 3]
     ])
   ).toEqual([1, 4, 9])
+
+  expect(
+    abs([
+      [-1, -2, -3],
+      [-1, -2, -3]
+    ])
+  ).toEqual([
+    [1, 2, 3],
+    [1, 2, 3]
+  ])
 
   expect(
     subtract([
