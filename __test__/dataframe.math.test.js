@@ -8,7 +8,7 @@ import {
   multiply,
   divide,
   abs
-} from '../lib/data-frame/math'
+} from '../lib/data-frame'
 
 test('base', () => {
   expect(
