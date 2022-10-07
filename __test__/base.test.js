@@ -1,4 +1,4 @@
-import { compose, sFn, isSquare } from "../lib/base"
+import { compose, sFn, isSquare, swap } from "../lib/base"
 
 test("base", () => {
   expect(
@@ -10,6 +10,8 @@ test("base", () => {
   ).toEqual(3)
 
   expect(sFn([1, 2, 3], (x) => x * 2)).toEqual([2, 4, 6])
+
+  expect(swap([1, 2], 0, 1)).toEqual([2, 1])
 
   expect(
     isSquare([
