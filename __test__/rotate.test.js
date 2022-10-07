@@ -1,4 +1,4 @@
-import { rot, rotC } from '../lib/base/rotate'
+import { rot, rotC } from '../lib/base'
 
 test('rotate', () => {
   expect(
