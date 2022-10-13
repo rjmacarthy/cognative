@@ -7,7 +7,11 @@ import {
   add,
   multiply,
   divide,
-  abs
+  abs,
+  zeros,
+  random,
+  dot,
+  fill
 } from '../lib/data-frame'
 
 test('base', () => {
@@ -89,4 +93,43 @@ test('base', () => {
       [1, 2, 3]
     ])
   ).toEqual([0, 0, 0])
+})
+
+test('zeros', () => {
+  expect(zeros(1, 2)).toEqual([[0, 0]])
+  expect(zeros(2, 3)).toEqual([
+    [0, 0, 0],
+    [0, 0, 0]
+  ])
+})
+
+test('random', () => {
+  expect(random(1, 2)[0].length).toEqual(2)
+  expect(random(2, 3)[0].length).toEqual(3)
+  expect(random(2, 3).length).toEqual(2)
+})
+
+test('dot', () => {
+  expect(
+    dot(
+      [[0.5488135039273248], [0.7151893663724195]],
+      [[0.10549716166494752], [0.10549716166494752]]
+    )
+  ).toEqual([[0.05789826694772729], [0.07545044820524252]])
+
+  expect(dot([3, 4, 5], [7, 8, 9])).toEqual(98)
+
+  expect(dot(2, 3)).toEqual(6)
+
+  expect(
+    dot([[0.5488135039273248], [0.7151893663724195]], 0.10549716166494752)
+  ).toEqual([[0.05789826694772729], [0.07545044820524252]])
+
+  expect(
+    dot([[0.5488135039273248], [0.7151893663724195]], [[0.10549716166494752]])
+  ).toEqual([[0.05789826694772729], [0.07545044820524252]])
+})
+
+test('fill', () => {
+  expect(fill(1, 3)).toEqual([1, 1, 1])
 })

@@ -1,9 +1,8 @@
-import { determinant } from "../lib/algorithms/determinant"
+import { determinant } from '../lib/algorithms/determinant'
 
-test("base", () => {
-
+test('base', () => {
   expect(
-    determinant([[1,2,3], [1,2,3]])
+    determinant([[1, 2, 3], [1, 2, 3]])
   ).toEqual(0)
 
   expect(

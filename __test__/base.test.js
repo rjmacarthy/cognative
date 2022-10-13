@@ -1,6 +1,6 @@
-import { compose, sFn, isSquare, swap, sFill } from "../lib/base"
+import { compose, sFn, isSquare, swap, sFill } from '../lib/base'
 
-test("base", () => {
+test('base', () => {
   expect(
     compose(
       (a) => a + 1,
