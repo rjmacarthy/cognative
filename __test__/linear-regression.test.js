@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import LinearRegression from '../lib/algorithms/linear-regression'
 import { x, y } from './fixtures/linear-regression.fixtures'
 
