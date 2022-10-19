@@ -6,15 +6,17 @@ import {
   subtract,
   add,
   multiply,
+  matMul,
   divide,
   abs,
   zeros,
   random,
   dot,
-  fill
-} from '../lib/data-frame'
+  fill,
+  sumSquares
+} from "../lib/data-frame"
 
-test('base', () => {
+test("base", () => {
   expect(
     sqrt([
       [1, 2, 3],
@@ -95,7 +97,7 @@ test('base', () => {
   ).toEqual([0, 0, 0])
 })
 
-test('zeros', () => {
+test("zeros", () => {
   expect(zeros(1, 2)).toEqual([[0, 0]])
   expect(zeros(2, 3)).toEqual([
     [0, 0, 0],
@@ -103,33 +105,41 @@ test('zeros', () => {
   ])
 })
 
-test('random', () => {
+test("random", () => {
   expect(random(1, 2)[0].length).toEqual(2)
   expect(random(2, 3)[0].length).toEqual(3)
   expect(random(2, 3).length).toEqual(2)
 })
 
-test('dot', () => {
-  expect(
-    dot(
-      [[0.5488135039273248], [0.7151893663724195]],
-      [[0.10549716166494752], [0.10549716166494752]]
-    )
-  ).toEqual([[0.05789826694772729], [0.07545044820524252]])
-
-  expect(dot([3, 4, 5], [7, 8, 9])).toEqual(98)
-
-  expect(dot(2, 3)).toEqual(6)
-
-  expect(
-    dot([[0.5488135039273248], [0.7151893663724195]], 0.10549716166494752)
-  ).toEqual([[0.05789826694772729], [0.07545044820524252]])
-
-  expect(
-    dot([[0.5488135039273248], [0.7151893663724195]], [[0.10549716166494752]])
-  ).toEqual([[0.05789826694772729], [0.07545044820524252]])
+test("dot", () => {
+  expect(dot([1, 2, 3], [1, 2, 3])).toEqual(14)
 })
 
-test('fill', () => {
+test("fill", () => {
   expect(fill(1, 3)).toEqual([1, 1, 1])
+})
+
+test("matMul", () => {
+  expect(
+    matMul(
+      [
+        [1, 2, 3],
+        [1, 2, 3]
+      ],
+      [
+        [1, 2, 3],
+        [1, 2, 3]
+      ]
+    )
+  ).toEqual([
+    [1, 1],
+    [4, 4],
+    [9, 9]
+  ])
+})
+
+test("sumSquares", () => {
+  expect(sumSquares([1, 2, 3, 4, 5, 6], [0, 0, 0, 0, 0, 0])).toEqual(
+    15.166666666666666
+  )
 })
