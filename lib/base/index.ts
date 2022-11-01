@@ -2,7 +2,7 @@ import * as _ from 'lodash'
 
 export const compose = (...fns: Function[]) =>
     (args: Matrix) =>
-      _.reduce(fns, (arg: any, fn: Function) => fn(arg), args)
+      _.reduce(fns, (arg, fn: Function) => fn(arg), args)
 
 export const sFn = (x: Matrix, fn: (s: Series) => SeriesResult) =>
   _.map(
