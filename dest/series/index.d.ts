@@ -1,0 +1,15 @@
+export declare const mean: (ns: Series) => number;
+export declare const sMean: (ns: Series) => number[];
+export declare const sSqrt: (ns: Series) => number[];
+export declare const sAdd: (ns: Series) => number;
+export declare const sDivide: (ns: Series) => number | undefined;
+export declare const sMultiply: (ns: Series) => number | undefined;
+export declare const sSubtract: (ns: Series) => number | undefined;
+export declare const sAbs: (ns: Series) => number[];
+export declare const sReverse: (x: Series) => Series;
+export declare const sDouble: (ns: Series) => number[];
+export declare const sStd: (ns: Series) => number;
+export declare const sZeros: (n: number) => any[];
+export declare const sRandom: (n: number, min?: number, max?: number) => number[];
+export declare const sCumSum: (ns: Series) => number[];
+export declare const sPow: (ns: Series, p: number) => number[];

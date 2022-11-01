@@ -1,0 +1,11 @@
+import * as _ from 'lodash';
+export declare const compose: (...fns: Function[]) => (args: Matrix) => Matrix;
+export declare const sFn: (x: Matrix, fn: (s: Series) => SeriesResult) => SeriesResult[];
+export declare const sFill: (size: number, x: number) => number[];
+export declare const swap: (arr: Array<any>, i: any, j: any) => any[];
+export declare const transpose: ((x: Matrix) => boolean[]) & _.MemoizedFunction;
+export declare const inverseTranspose: ((x: Matrix) => boolean[]) & _.MemoizedFunction;
+export declare const shape: ((x: Matrix) => number[]) & _.MemoizedFunction;
+export declare const isSquare: ((x: any) => boolean) & _.MemoizedFunction;
+export declare const isSameShape: (x: Matrix, y: Matrix) => boolean;
+export declare const is1d: (x: Matrix) => boolean;

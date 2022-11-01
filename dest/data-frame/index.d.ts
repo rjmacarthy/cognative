@@ -1,0 +1,16 @@
+export declare const mean: (x: Matrix) => Matrix;
+export declare const sqrt: (x: Matrix) => Matrix;
+export declare const stddev: (x: Matrix) => Matrix;
+export declare const cumSum: (x: Matrix) => Matrix;
+export declare const add: (x: Matrix) => Matrix;
+export declare const subtract: (x: Matrix) => Matrix;
+export declare const divide: (x: Matrix) => Matrix;
+export declare const multiply: (x: Matrix) => Matrix;
+export declare const matMul: (x: Matrix, y: Matrix) => boolean[];
+export declare const abs: (x: Matrix) => SeriesResult[];
+export declare const fill: (i: number, t: number) => number[];
+export declare const zeros: (r: number, c: number) => any[][];
+export declare const random: (r: number, c: number, min: number, max: number) => number[][];
+export declare const pow: (x: Matrix, p: number) => SeriesResult[];
+export declare const dot: (a: number[], b: number[]) => number;
+export declare const sumSquares: (x: number[], y: number[]) => number;
