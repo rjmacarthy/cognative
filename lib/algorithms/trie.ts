@@ -23,7 +23,6 @@ class TrieNode {
         node = node.parent
       }
     }
-
     return _.join(output, "")
   }
 }
@@ -54,7 +53,7 @@ class Trie {
   }
 
   print() {
-    console.log(this.root.children["a"].children["n"].children["d"].getWord())
+    console.log(this.root)
   }
 }
 
