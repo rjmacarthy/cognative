@@ -17,7 +17,7 @@ class TrieNode {
     let node = this as TrieNode
 
     while (node !== null && node.key) {
-      output.unshift(node?.key)
+      output.unshift(node.key)
       if (node.parent) {
         node = node.parent
       }
@@ -49,6 +49,23 @@ class Trie {
         node.end = true
       }
     })
+  }
+
+  search = (word: string) => {
+    const characters = _.split(word, "")
+    let node = this.root
+
+    _.forEach(characters, (character) => {
+      if (_.get(node, ['children', character])) {
+        node = _.get(node, ['children', character])
+      }
+    })
+
+
+
+    return node.end
+      ? node.getWord()
+      : undefined
   }
 
   print() {

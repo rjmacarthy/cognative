@@ -1,11 +1,21 @@
-import Trie from '../lib/algorithms/trie'
+import * as _ from "lodash"
+import Trie from "../lib/algorithms/trie"
 
-test('base', () => {
+const words = ["cat", "car", "card", "cart", "dog"]
+
+const insertWords = (t: Trie) => {
+  _.forEach(words, (word) => {
+    t.insert(word)
+  })
+}
+
+test("insert and search", () => {
   const t = new Trie()
+  insertWords(t)
 
-  t.insert('and')
-  t.insert('ant')
-  t.insert('dad')
-  t.insert('do')
-  t.print()
+  _.forEach(words, (word) => {
+    expect(t.search(word)).toBeTruthy()
+  })
+
+  expect(t.search("c")).toBeFalsy()
 })
