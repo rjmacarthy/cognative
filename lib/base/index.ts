@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import * as _ from 'lodash'
 
 export const compose = (...fns: Function[]) =>
     (args: Matrix) =>
       _.reduce(fns, (arg, fn: Function) => fn(arg), args)
 
+  
 export const sFn = (x: Matrix, fn: (s: Series) => SeriesResult) =>
   _.map(
     x,
@@ -12,16 +14,14 @@ export const sFn = (x: Matrix, fn: (s: Series) => SeriesResult) =>
 
 export const sFill = (size: number, x: number) => _.fill(Array(size), x)
 
-export const swap = (arr: Array<any>, i: any, j: any) => {
+export const swap = (arr: number[], i: number, j: number) => {
   const temp = arr[i]
   arr[i] = arr[j]
   arr[j] = temp
   return arr
 }
 
-export const transpose = _.memoize((x : Matrix) =>
-  _.map(_.first(x), (_v: Series, i: number) => _.reverse(_.map(x, (r) => r[i])))
-)
+export const transpose = (x : Matrix) => _.map(_.first(x), (_v: Series, i: number): number[] => _.reverse(_.map(x, (r) => r[i])))
 
 export const inverseTranspose = _.memoize((x : Matrix) =>
   _.map(_.first(x), (_v: Series, i: number) => _.map(x, (r: number[]) => r[_.size(r) - 1 - i]))

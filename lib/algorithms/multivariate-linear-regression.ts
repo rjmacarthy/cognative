@@ -28,7 +28,7 @@ export const multiVariateLinearRegression = (x: { features: Matrix, labels: Seri
 
 const getGradients = (features: Matrix, labels: Series, predictions: number[]) => {
   const [m, n] = shape(features)
-  let weights = sZeros(n)
+  const weights = sZeros(n)
   let bias = 0
 
   _.forEach(_.times(m), (i: number) => {
