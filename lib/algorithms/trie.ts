@@ -15,7 +15,6 @@ class TrieNode {
   getWord() {
     const output = []
     let node = this as TrieNode
-    console.log(this)
 
     while (node !== null && node.key) {
       output.unshift(node?.key)
