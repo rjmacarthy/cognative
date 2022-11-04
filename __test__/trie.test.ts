@@ -12,7 +12,6 @@ const insertWords = (t: Trie) => {
 test('insert and search', () => {
   const t = new Trie()
   insertWords(t)
-
   _.forEach(words, (word) => {
     expect(t.search(word)).toBeTruthy()
   })
