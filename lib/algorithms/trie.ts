@@ -1,4 +1,4 @@
-import * as _ from "lodash"
+import * as _ from 'lodash'
 
 class TrieNode {
   key?: string | null
@@ -22,7 +22,7 @@ class TrieNode {
         node = node.parent
       }
     }
-    return _.join(output, "")
+    return _.join(output, '')
   }
 }
 
@@ -35,7 +35,7 @@ class Trie {
 
   insert(word: string) {
     let node = this.root
-    const letters = _.split(word, "")
+    const letters = _.split(word, '')
 
     _.forEach(letters, (character, index) => {
       if (!_.get(node.children, character)) {
@@ -52,7 +52,7 @@ class Trie {
   }
 
   search = (word: string) => {
-    const characters = _.split(word, "")
+    const characters = _.split(word, '')
     let node = this.root
 
     _.forEach(characters, (character) => {
@@ -61,15 +61,37 @@ class Trie {
       }
     })
 
-
-
-    return node.end
-      ? node.getWord()
-      : undefined
+    return node.end ? node.getWord() : undefined
   }
 
-  print() {
-    console.log(this.root)
+  delete = (word: string) => {
+    if (!word) {
+      return false
+    }
+
+    const removeWord = (node: TrieNode, word: string) => {
+      if (node?.end && word === node.getWord()) {
+        const hasChildren = !_.isEmpty(node.children)
+
+        if (hasChildren) {
+          node.end = false
+        } else {
+          if (node.parent) {
+            node.parent.children = {}
+          }
+        }
+
+        return true
+      }
+
+      for (const key in node?.children) {
+        removeWord(node.children[key], word)
+      }
+
+      return false
+    }
+
+    removeWord(this.root, word)
   }
 }
 
