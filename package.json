@@ -10,7 +10,8 @@
     "build": "tsc -p .",
     "test": "jest",
     "test:debug": "jest --runInBand",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint --fix . --ext .ts"
   },
   "author": "Richard Macarthy (rjmacarthy)",
   "license": "ISC",
