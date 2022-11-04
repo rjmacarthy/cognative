@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import * as _ from "lodash"
+import * as _ from 'lodash'
 
 export const compose =
   (...fns: Function[]) =>

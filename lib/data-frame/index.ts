@@ -1,5 +1,5 @@
-import * as _ from "lodash"
-import { transpose, inverseTranspose, compose, sFn } from "../base"
+import * as _ from 'lodash'
+import { transpose, inverseTranspose, compose, sFn } from '../base'
 import {
   sAbs,
   sAdd,
@@ -13,7 +13,7 @@ import {
   sStd,
   sSubtract,
   sZeros
-} from "../series"
+} from '../series'
 
 export const mean = (x: Matrix) =>
   compose(transpose, (x: Matrix) => sFn(x)(sMean), inverseTranspose)(x)
