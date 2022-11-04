@@ -64,34 +64,31 @@ class Trie {
     return node.end ? node.getWord() : undefined
   }
 
+  removeWord = (node: TrieNode, word: string) => {
+    if (node?.end && word === node.getWord()) {
+      if (!_.isEmpty(node.children)) {
+        node.end = false
+      } else {
+        if (node.parent) {
+          node.parent.children = {}
+        }
+      }
+      return true
+    }
+
+    for (const key in node?.children) {
+      this.removeWord(_.get(node, ['children', key]), word)
+    }
+
+    return false
+  }
+
   delete = (word: string) => {
     if (!word) {
       return false
     }
 
-    const removeWord = (node: TrieNode, word: string) => {
-      if (node?.end && word === node.getWord()) {
-        const hasChildren = !_.isEmpty(node.children)
-
-        if (hasChildren) {
-          node.end = false
-        } else {
-          if (node.parent) {
-            node.parent.children = {}
-          }
-        }
-
-        return true
-      }
-
-      for (const key in node?.children) {
-        removeWord(node.children[key], word)
-      }
-
-      return false
-    }
-
-    removeWord(this.root, word)
+    this.removeWord(this.root, word)
   }
 }
 
