@@ -6,7 +6,7 @@ export const compose = (...fns: Function[]) =>
       _.reduce(fns, (arg, fn: Function) => fn(arg), args)
 
   
-export const sFn = (x: Matrix, fn: (s: Series) => SeriesResult) =>
+export const sFn = (x: Matrix) => (fn: (s: Series) => SeriesResult) =>
   _.map(
     x,
     _.memoize((r: Series) => fn(r))
