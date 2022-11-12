@@ -20,3 +20,14 @@ test('insert and search', () => {
   t.delete('cat')
   expect(t.search('cat')).toBeFalsy()
 })
+
+test('prefix search', () => {
+  const t = new Trie()
+  insertWords(t)
+  const result = t.prefixSearch('car')
+  expect(result).toHaveLength(4)
+  expect(result).toContain('car')
+  expect(result).toContain('cart')
+  expect(result).toContain('carts')
+  expect(result).toContain('card')
+})

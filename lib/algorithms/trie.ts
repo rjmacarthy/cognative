@@ -83,6 +83,32 @@ class Trie {
     return false
   }
 
+  findAllWords = (node: TrieNode, arr: string[] ) => {
+    if (node.end) {
+      arr.unshift(node.getWord());
+    }
+
+    for (const child in node.children) {
+      this.findAllWords(node.children[child], arr);
+    }
+  }
+
+  prefixSearch = (prefix: string) => {
+    let node = this.root
+    const output: string[] = []
+    for(let i = 0; i < prefix.length; i++) {
+      const letter = prefix[i]
+      if (node.children[letter]) {
+        node = node.children[letter];
+      } else {
+        return output;
+      }
+    }
+    this.findAllWords(node, output);
+
+    return output;
+  }
+  
   delete = (word: string) => {
     if (!word) {
       return false
