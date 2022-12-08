@@ -1,5 +1,5 @@
 import * as _ from "lodash"
-import { compose, sFn, isSquare, swap, sFill, transpose } from "../lib/base"
+import { compose, sFn, isSquare, swap, sFill, transpose, inverseTranspose } from "../lib/base"
 import { add } from "../lib/data-frame"
 
 test("base", () => {
@@ -19,6 +19,15 @@ test("base", () => {
     [1, 1],
     [2, 2],
     [3, 3]
+  ])
+
+  expect(inverseTranspose([
+    [1, 4],
+    [2, 5],
+    [3, 6],
+  ])).toEqual([
+    [1, 2, 3],
+    [4, 5, 6]
   ])
 
   expect(

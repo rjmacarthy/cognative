@@ -1,16 +1,15 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import * as _ from 'lodash'
+import { map, unzip, zip } from 'lodash/fp'
 
-export const compose =
-  (...fns: Function[]) =>
+export const compose = (...fns: Function[]) =>
   (args: Matrix) =>
     _.reduce(fns, (arg, fn: Function) => fn(arg), args)
 
 export const sFn = (x: Matrix) => (fn: (s: Series) => SeriesResult) =>
-  _.map(
-    x,
+  map(
     _.memoize((r: Series) => fn(r))
-  )
+  )(x)
 
 export const sFill = (size: number, x: number) => _.fill(Array(size), x)
 
@@ -21,16 +20,11 @@ export const swap = (arr: number[], i: number, j: number) => {
   return arr
 }
 
-export const transpose = (x: Matrix) =>
-  _.map(_.first(x), (_v: Series, i: number): number[] =>
-    _.reverse(_.map(x, (r) => r[i]))
-  )
+export const transpose = (x: Matrix): Matrix => 
+  unzip(map((row: Series) => row)(x))
 
-export const inverseTranspose = _.memoize((x: Matrix) =>
-  _.map(_.first(x), (_v: Series, i: number) =>
-    _.map(x, (r: number[]) => r[_.size(r) - 1 - i])
-  )
-)
+export const inverseTranspose = (matrix: Matrix): Matrix => 
+  unzip(matrix)
 
 export const shape = _.memoize((x: Matrix) => [_.size(x), _.size(_.first(x))])
 
