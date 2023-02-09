@@ -1,5 +1,5 @@
 import * as _ from 'lodash'
-import { transpose, inverseTranspose, compose, sFn } from '../base'
+import { rotate, rotateR, compose, sFn } from '../base'
 import {
   sAbs,
   sAdd,
@@ -16,32 +16,32 @@ import {
 } from '../series'
 
 export const mean = (x: Matrix) =>
-  compose(transpose, (x: Matrix) => sFn(x)(sMean), inverseTranspose)(x)
+  compose(rotate, (x: Matrix) => sFn(x)(sMean), rotateR)(x)
 
 export const sqrt = (x: Matrix) =>
-  compose(transpose, (x: Matrix) => sFn(x)(sSqrt), inverseTranspose)(x)
+  compose(rotate, (x: Matrix) => sFn(x)(sSqrt), rotateR)(x)
 
 export const stddev = (x: Matrix) =>
-  compose(transpose, (x: Matrix) => sFn(x)(sStd))(x)
+  compose(rotate, (x: Matrix) => sFn(x)(sStd))(x)
 
 export const cumSum = (x: Matrix) =>
-  compose(inverseTranspose, (x: Matrix) => sFn(x)(sCumSum), transpose)(x)
+  compose(rotateR, (x: Matrix) => sFn(x)(sCumSum), rotate)(x)
 
 export const add = (x: Matrix) =>
-  compose(transpose, (x: Matrix) => sFn(x)(sAdd))(x)
+  compose(rotate, (x: Matrix) => sFn(x)(sAdd))(x)
 
 export const subtract = (x: Matrix) =>
-  compose(transpose, (x: Matrix) => sFn(x)(sSubtract))(x)
+  compose(rotate, (x: Matrix) => sFn(x)(sSubtract))(x)
 
 export const divide = (x: Matrix) =>
-  compose(transpose, (x: Matrix) => sFn(x)(sDivide))(x)
+  compose(rotate, (x: Matrix) => sFn(x)(sDivide))(x)
 
 export const multiply = (x: Matrix) =>
-  compose(transpose, (x: Matrix) => sFn(x)(sMultiply))(x)
+  compose(rotate, (x: Matrix) => sFn(x)(sMultiply))(x)
 
 export const matMul = (x: Matrix, y: Matrix) =>
-  _.map(transpose(x), (r: number[], ri: number) =>
-    _.map(r, (n: number, i: number) => n * _.get(transpose(y), [ri, i]))
+  _.map(rotate(x), (r: number[], ri: number) =>
+    _.map(r, (n: number, i: number) => n * _.get(rotate(y), [ri, i]))
   )
 
 export const abs = (x: Matrix) => sFn(x)(sAbs)

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import * as _ from 'lodash'
-import { map, unzip, zip } from 'lodash/fp'
+import { map, unzip } from 'lodash/fp'
 
 export const compose = (...fns: Function[]) =>
   (args: Matrix) =>
@@ -20,10 +20,10 @@ export const swap = (arr: number[], i: number, j: number) => {
   return arr
 }
 
-export const transpose = (x: Matrix): Matrix => 
+export const rotate = (x: Matrix): Matrix =>
   unzip(map((row: Series) => row)(x))
 
-export const inverseTranspose = (matrix: Matrix): Matrix => 
+export const rotateR = (matrix: Matrix): Matrix =>
   unzip(matrix)
 
 export const shape = _.memoize((x: Matrix) => [_.size(x), _.size(_.first(x))])
