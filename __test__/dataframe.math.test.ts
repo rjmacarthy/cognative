@@ -14,7 +14,7 @@ import {
   dot,
   fill,
   sumSquares
-} from "../lib/data-frame"
+} from "../lib/matrix"
 
 test("base", () => {
   expect(

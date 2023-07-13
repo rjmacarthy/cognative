@@ -1,8 +1,8 @@
-import * as dfMath from './lib/df/math'
-import * as sMath from './lib/s/math'
-import * as base from './lib/base/base'
-import * as rotate from './lib/rotate'
-import * as shape from './lib/shape'
+import * as dfMath from './lib/data-frame'
+import * as sMath from './lib/series'
+import * as base from './lib/base'
+import { rotate } from './lib/base/index'
+import { shape } from './lib/base'
 
 export default {
   base: {

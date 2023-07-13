@@ -1,7 +1,7 @@
 import * as _ from 'lodash'
 import { shape } from '../base'
-import { dot, sumSquares } from '../data-frame'
-import { sZeros } from '../series'
+import { dot, sumSquares } from '../matrix'
+import { sZeros } from '../vector'
 
 export const multiVariateLinearRegression = (x: { features: Matrix, labels: Series}, iterations: number) => {
   const { features, labels } = x

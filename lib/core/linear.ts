@@ -1,8 +1,9 @@
-import { dot } from '../data-frame'
-import { random } from '../data-frame'
+import { dot } from '../matrix'
 
+import * as _ from 'lodash'
+import { random } from '../matrix'
 
-export class LinearLayer {
+export class Linear {
   weights: number[][]
   bias: number[]
   constructor(inputSize: number, outputSize: number) {
@@ -11,12 +12,8 @@ export class LinearLayer {
   }
 
   forward(x: number[]) {
-    const output = []
-    for (let i = 0; i < this.bias.length; i++) {
-      const weightedSub = dot(this.weights[i], x)
-      const activation = weightedSub + this.bias[i]
-      output.push(activation)
-    }
-    return output
+    return _.map(_.times(_.size(this.bias)), (i: number) =>
+      _.add(dot(_.get(this.weights, i), x), _.get(this.bias, i))
+    )
   }
 }

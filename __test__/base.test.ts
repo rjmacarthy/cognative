@@ -1,6 +1,6 @@
 import * as _ from "lodash"
 import { compose, sFn, isSquare, swap, sFill, rotate, rotateR } from "../lib/base"
-import { add } from "../lib/data-frame"
+import { add } from "../lib/matrix"
 
 test("base", () => {
   expect(
