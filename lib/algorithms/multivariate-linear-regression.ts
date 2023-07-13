@@ -1,13 +1,13 @@
 import * as _ from 'lodash'
 import { shape } from '../base'
 import { dot, sumSquares } from '../matrix'
-import { sZeros } from '../vector'
+import { vZeros } from '../vector'
 
 export const multiVariateLinearRegression = (x: { features: Matrix, labels: Series}, iterations: number) => {
   const { features, labels } = x
   const s: Series = shape(features)
   const n: number = _.last(s) || 0
-  let weights = sZeros(n)
+  let weights = vZeros(n)
   let bias = 0
 
   const costs = _.map(_.times(iterations), () => {
@@ -28,7 +28,7 @@ export const multiVariateLinearRegression = (x: { features: Matrix, labels: Seri
 
 const getGradients = (features: Matrix, labels: Series, predictions: number[]) => {
   const [m, n] = shape(features)
-  const weights = sZeros(n)
+  const weights = vZeros(n)
   let bias = 0
 
   _.forEach(_.times(m), (i: number) => {
