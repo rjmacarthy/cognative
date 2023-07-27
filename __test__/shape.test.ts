@@ -1,4 +1,4 @@
-import { shape } from '../lib/base'
+import { shape } from "../lib/matrix"
 
 test('base', () => {
   expect(

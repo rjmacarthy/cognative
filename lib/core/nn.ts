@@ -24,7 +24,6 @@ export class NeuralNetwork {
     const hiddenLayer = this.linear1.forward(x)
     const activatedHiddenLayer = this.relu(hiddenLayer)
     const outputLayer = this.linear2.forward(activatedHiddenLayer)
-    debugger
     return outputLayer
   }
 }

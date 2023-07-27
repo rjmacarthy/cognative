@@ -1,4 +1,4 @@
-import { multiVariateLinearRegression } from "../lib/algorithms/multivariate-linear-regression"
+import { multiVariateLinearRegression } from "../lib/examples/multivariate-linear-regression"
 
 test("multiVariateLinearRegression", () => {
   const data = {

@@ -1,5 +1,5 @@
 import * as _ from 'lodash'
-import Trie from '../lib/algorithms/trie'
+import Trie from '../lib/examples/trie'
 
 const words = ['cat', 'car', 'card', 'cart', 'dog', 'carts']
 

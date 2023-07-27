@@ -2,7 +2,7 @@ import { NeuralNetwork } from '../lib/core/nn'
 
 describe('nn', () => {
   test('nn', () => {
-    const ll = new NeuralNetwork(2, 3, 1)
+    const ll = new NeuralNetwork(2, 100, 1)
     const inputs = [
       [0, 0],
       [0, 1],
@@ -12,7 +12,6 @@ describe('nn', () => {
 
     inputs.forEach((input) => {
       const output = ll.forward(input)
-      console.log(output)
     })
   })
 })
